@@ -1,0 +1,25 @@
+version: "3"
+services:
+  postgres:
+    hostname: database
+    image: library/postgres:13
+    container_name: postgres
+    restart: on-failure
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./postgres/:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432:5432"
+
+    
+  backend:
+    image: rsoi-lr-1:latest
+    ports:
+     - "3000:3000"
+
+volumes:
+  db-data:
