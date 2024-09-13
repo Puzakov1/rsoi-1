@@ -53,5 +53,3 @@ def test_post_delete(persons):
     assert r.status_code == 204
     r = requests.get(redirected_urd)
     assert r.status_code == 400
-    assert r.status_code == 200
-    assert r.json() == persons | person_id_dict
