@@ -25,6 +25,11 @@ jobs:
               pip install -r requirements.txt
               pytest tests.py
 
+      - uses: JorgeLNJunior/render-deploy@v1.4.4
+        with:
+            service_id: ${{secrets.RENDER_SERVICE_ID}}
+            api_key: ${{secrets.RENDER_API_KEY}}
+            wait_deploy: true 
       - name: Run API Tests
         uses: matt-ball/newman-action@master
         with:
