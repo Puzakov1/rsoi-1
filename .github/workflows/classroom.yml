@@ -15,7 +15,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      # TODO build, test and deploy project
+      - name: unit tests
+        run: |
+          pip install --no-cache-dir -r requirements.txt
+          pytest tests.py
 
       - name: Run API Tests
         uses: matt-ball/newman-action@master

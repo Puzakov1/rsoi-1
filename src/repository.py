@@ -1,7 +1,8 @@
 import psycopg2
+from os import getenv
+# DB_URL = 'postgresql://postgres:postgres@database:5432/postgres'
 
-DB_URL = 'postgresql://postgres:postgres@database:5432/postgres'
-
+DB_URL = getenv("DB_URL")
 
 class DatabaseRequests:
     def __init__(self):
