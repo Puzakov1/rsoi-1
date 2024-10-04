@@ -21,6 +21,7 @@ jobs:
           python-version: '3.9'
           cache: 'pip' # caching pip dependencies
       - run: |
+              export DB_URL=${{secrets.DB_URL}}
               pip install -r requirements.txt
               pytest tests.py
 
