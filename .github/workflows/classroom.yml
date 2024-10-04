@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.10' 
-      - run: python my_script.py
+      - run: pytest tests.py
 
       - name: Run API Tests
         uses: matt-ball/newman-action@master
